@@ -17,6 +17,8 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL);
 
+const port = process.env.PORT || 8000;
+
 // app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.use("/images", express.static(path.join(__dirname,"public/images")));
@@ -59,6 +61,6 @@ app.use("/api/posts" , postRoute);
 app.use("/api/conversations" , conversationRoute);
 app.use("/api/messages" , messageRoute);
 
-app.listen(8000,()=>{
+app.listen(port,()=>{
       console.log("Backend server is running!")
 })
